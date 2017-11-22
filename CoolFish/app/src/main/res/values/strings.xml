@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CoolFish</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_reg">regActivity</string>
+    <string name="title_activity_add">addActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
+</resources>
