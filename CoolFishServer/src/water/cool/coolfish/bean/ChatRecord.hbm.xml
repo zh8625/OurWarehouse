@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="water.cool.coolfish.bean" >
+	<!-- 描述类和表的关系 -->
+	<class name="ChatRecord" table="chatrecord" >
+		<!-- 描述主键 -->
+		<id name="cid"  column="cid" >
+			<generator class="native"/>
+		</id>
+		<!-- 描述普通属性和字段的关系 -->	
+		<property name="fromuid" type="integer" column="fromuid" not-null="false" />
+		<property name="touid" type="integer" column="touid" not-null="false" />
+		<property name="message" type="string" column="message" not-null="false" />
+		<property name="cdate" type="string" column="cdate" not-null="false" />
+	</class>
+</hibernate-mapping>

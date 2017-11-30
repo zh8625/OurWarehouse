@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="water.cool.coolfish.bean" >
+	<!-- 描述类和表的关系 -->
+	<class name="Friend" table="friend" >
+		<!-- 描述主键 -->
+		<id name="fid"  column="fid" >
+			<generator class="native"/>
+		</id>
+		<!-- 描述普通属性和字段的关系 -->
+		<!-- fuido>fuidone   fuidt>fuidtwo -->	
+		<property name="fuido" type="string" column="fuido" not-null="false" />
+		<property name="fuidt" type="string" column="fuidt" not-null="false" />
+	</class>
+</hibernate-mapping>

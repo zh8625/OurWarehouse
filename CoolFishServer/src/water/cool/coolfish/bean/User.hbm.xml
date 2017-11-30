@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="water.cool.coolfish.bean" >
+	<!-- 描述类和表的关系 -->
+	<class name="User" table="user" >
+		<!-- 描述主键 -->
+		<id name="uid"  column="uid" >
+			<generator class="native"/>
+		</id>
+		<!-- 描述普通属性和字段的关系 -->	
+		<property name="password" type="string" column="password" not-null="false" />
+		<property name="username" type="string" column="username" not-null="false" />
+		<property name="usex" type="string" column="usex" not-null="false" />
+		<property name="uage" type="integer" column="uage" not-null="false" />
+		<property name="uicon" type="string" column="uicon" not-null="false" />
+		<property name="ustatus" type="integer" column="ustatus" not-null="false" />
+		
+	</class>
+</hibernate-mapping>
