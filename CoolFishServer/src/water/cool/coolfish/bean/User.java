@@ -13,7 +13,6 @@ public class User {
 	
 	private String uicon;//用户头像
 	
-	private Integer ustatus;//用户状态(是否登录)
 
 	public Integer getUid() {
 		return uid;
@@ -63,15 +62,5 @@ public class User {
 		this.uicon = uicon;
 	}
 
-	public Integer getUstatus() {
-		return ustatus;
-	}
-
-	public void setUstatus(Integer ustatus) {
-		this.ustatus = ustatus;
-	}
-	
-	
-	
 
 }

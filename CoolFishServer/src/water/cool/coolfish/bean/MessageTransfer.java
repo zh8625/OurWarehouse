@@ -13,7 +13,7 @@ public class MessageTransfer {
 	
 	private String message;//信息
 	
-	private String mdate;//时间
+	private Date mdate;//时间
 	
 	
 
@@ -49,17 +49,13 @@ public class MessageTransfer {
 		this.message = message;
 	}
 
-	public String getMdate() {
+	public Date getMdate() {
 		return mdate;
 	}
 
-	public void setMdate(String mdate) {
+	public void setMdate(Date mdate) {
 		this.mdate = mdate;
 	}
 
-
-	
-	
-	
 
 }

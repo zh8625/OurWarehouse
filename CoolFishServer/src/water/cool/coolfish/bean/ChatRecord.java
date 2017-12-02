@@ -12,7 +12,7 @@ public class ChatRecord {
 	
 	private String message;
 	
-	private String cdate;
+	private Date cdate;
 	
 	
 
@@ -48,13 +48,15 @@ public class ChatRecord {
 		this.message = message;
 	}
 
-	public String getCdate() {
+	public Date getCdate() {
 		return cdate;
 	}
 
-	public void setCdate(String cdate) {
+	public void setCdate(Date cdate) {
 		this.cdate = cdate;
 	}
+
+
 	
 
 }

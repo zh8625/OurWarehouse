@@ -12,6 +12,6 @@
 		<property name="fromuid" type="integer" column="fromuid" not-null="false" />
 		<property name="touid" type="integer" column="touid" not-null="false" />
 		<property name="message" type="string" column="message" not-null="false" />
-		<property name="mdate" type="string" column="mdate" not-null="false" />
+		<property name="mdate" type="date" column="mdate" not-null="false" />
 	</class>
 </hibernate-mapping>

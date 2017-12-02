@@ -5,7 +5,9 @@
 
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
+		<action name="chat*" class="chatAction" method="{1}">
 
+		</action>
 
 	</package>
 </struts>
