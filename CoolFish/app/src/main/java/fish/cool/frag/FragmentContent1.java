@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import fish.cool.adapter.ContactAdapter;
 import fish.cool.coolfish.R;
 
 
@@ -17,13 +19,16 @@ import fish.cool.coolfish.R;
  */
 
 public class FragmentContent1 extends Fragment{
+
+    private ListView lv;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          super.onCreateView(inflater, container, savedInstanceState);
-        TextView view= (TextView) inflater.inflate(R.layout.frag_main_content_1,container,false);
-        String s=getClass().getSimpleName();
-        view.setText(s);
-        return view ;
+        lv= (ListView) inflater.inflate(R.layout.frag_main_content_1,container,false);
+
+        ContactAdapter adapter=new ContactAdapter();
+        lv.setAdapter(adapter);
+        return lv ;
     }
 }

@@ -21,6 +21,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.back:
+
                 AddActivity.this.finish();
                 break;
         }
