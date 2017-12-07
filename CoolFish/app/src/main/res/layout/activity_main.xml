@@ -11,7 +11,7 @@
 
         <fragment
             android:id="@+id/frag_content"
-            class="fish.cool.frag.MainContentFragment"
+            class="fish.cool.coolfish.frag.MainContentFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
