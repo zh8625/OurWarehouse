@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
+ * 这个文件没什么用
  * Created by Mr.Yu on 2017/11/23.
  */
 

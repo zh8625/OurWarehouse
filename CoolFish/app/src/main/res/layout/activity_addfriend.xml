@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="fish.cool.coolfish.activity.AddActivity">
+    tools:context="fish.cool.coolfish.activity.AddfriendActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
         >
         <TextView
-            android:id="@+id/back"
+            android:id="@+id/tv_back_add"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
@@ -29,15 +29,26 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
+        android:queryHint="请输入用户名"
         />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_goodFriend_add"
+
+    <TextView
+        android:id="@+id/tv_goodFriend_add"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textSize="30sp"
+        />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="点击用户名添加好友"
+        android:gravity="center"
+        />
 
-
-    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

@@ -16,6 +16,7 @@ import fish.cool.coolfish.R;
 
 
 /**
+ * 聊天记录的那个页面
  * Created by ch on 2017/11/29.
  */
 

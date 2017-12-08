@@ -1,24 +1,17 @@
 package fish.cool.coolfish.frag;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fish.cool.coolfish.activity.AddActivity;
 import fish.cool.coolfish.R;
 
 
@@ -26,12 +19,8 @@ import fish.cool.coolfish.R;
  * Created by ch on 2017/11/29.
  */
 
-public class MainContentFragment extends Fragment implements View.OnClickListener {
-    private Toolbar tb;
-    private DrawerLayout dl;
-    private TabLayout tl;
-    private ImageView img_Drader;
-    private TextView add;
+public class MainContentFragment extends Fragment  {
+    private TabLayout tl_main_content;
 
     private String TAG = getClass().getSimpleName();
     private List<Fragment> frags;
@@ -42,31 +31,24 @@ public class MainContentFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.frag_main_content, container, false);
-        tl = view.findViewById(R.id.tl);
-        dl = view.findViewById(R.id.dl);
-        tb = view.findViewById(R.id.tb);
-        img_Drader = view.findViewById(R.id.img_Drader);
-        add = view.findViewById(R.id.add);
+        //
+        tl_main_content=view.findViewById(R.id.tl_main_content);
 
-        img_Drader.setOnClickListener(this);
-        add.setOnClickListener(this);
-
-        //给tl三个标签
-        tl.addTab(tl.newTab().setText("聊天"));
-        tl.addTab(tl.newTab().setText("联系人"));
+        //给两个标签
+        tl_main_content.addTab(tl_main_content.newTab().setText("聊天"));
+        tl_main_content.addTab(tl_main_content.newTab().setText("联系人"));
 
         frags = new ArrayList<>();
         frags.add(new FragmentContentChat());
         frags.add(new FragmentContentFriend());
 
-        tl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tl_main_content.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Log.d(TAG, "onTabSelected: " + tab.getPosition());
                 //动态加载fragment
                 //fragment的管理器，开启事务，在activity中getSupportFragmentManager，在fragment中getChildFragmentManager)
                 getChildFragmentManager().beginTransaction()
-                        .replace(R.id.fl, frags.get(tab.getPosition()))
+                        .replace(R.id.fl_main_content, frags.get(tab.getPosition()))
                         .commit();
             }
             @Override
@@ -79,23 +61,10 @@ public class MainContentFragment extends Fragment implements View.OnClickListene
         // 动态加载fragment
         // fragment的管理器，开启事务(在activity中getSupportFragmentManager，在fragment中getChildFragmentManager)
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.fl, frags.get(0))
+                .replace(R.id.fl_main_content, frags.get(0))
                 .commit();
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_Drader:
-                Intent drawer = new Intent(getContext(), MainDrawerFragment.class);
-                startActivity(drawer);
-                break;
 
-            case R.id.add:
-                Intent add = new Intent(getContext(), AddActivity.class);
-                startActivity(add);
-                break;
-        }
-    }
 }

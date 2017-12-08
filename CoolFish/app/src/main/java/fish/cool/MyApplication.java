@@ -6,6 +6,8 @@ import com.lzy.okgo.OkGo;
 
 import java.util.concurrent.TimeUnit;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import okhttp3.OkHttpClient;
 
 
@@ -27,12 +29,18 @@ public class MyApplication extends Application {
 
         OkGo.getInstance().init(this)                       //必须调用初始化
                 .setOkHttpClient(builder.build());
+        //realm
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                // .directory(dir)
+                .name("CoolFish.realm")
+                .schemaVersion(1)
+                .build();
+        Realm.setDefaultConfiguration(config);
+        //
 
 
-
-        }
-
+    }
 
 
-
-        }
+}

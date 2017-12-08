@@ -90,9 +90,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 ResponseJson responseJson= JsonUtils.toBean(json, ResponseJson.class);
                 String jsonData=JsonUtils.getString(json,"data");
 
-                if (responseJson.getCode()==1){
+                if (responseJson.getCode()==0){
                     putSPString("SP_USER",jsonData);
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                    LoginActivity.this.finish();
+
                 }else if (responseJson.getCode()==-1){
                     Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                 }
