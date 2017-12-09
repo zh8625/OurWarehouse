@@ -11,7 +11,6 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import fish.cool.coolfish.adapter.ContactAdapter;
 import fish.cool.coolfish.R;
 
 

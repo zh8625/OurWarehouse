@@ -58,7 +58,7 @@ public class RegActivity extends BaseActivity implements View.OnClickListener {
             }
         });
         //返回
-        tv_back = findViewById(R.id.tv_back);
+        tv_back = findViewById(R.id.tv_back_reg);
         tv_back.setOnClickListener(this);
         //注册按钮
         bt_reg = findViewById(R.id.bt_reg);
@@ -74,10 +74,10 @@ public class RegActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.reg:
+            case R.id.bt_reg:
                 regUser();
                 break;
-            case R.id.tv_back:
+            case R.id.tv_back_reg:
                 RegActivity.this.finish();
                 break;
         }

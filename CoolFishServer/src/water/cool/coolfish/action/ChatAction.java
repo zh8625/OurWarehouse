@@ -224,7 +224,7 @@ public class ChatAction extends ActionSupport implements ModelDriven<User> {
 	//∫√”—¡–±Ì
 		public String friendList() {
 			HttpServletResponse response = ServletActionContext.getResponse();
-			List<Map<String, Object>> friendList = userAndFriendService.friendList(user.getUid());
+			List<User> friendList = userAndFriendService.friendList(user.getUid());
 			String flj = JSONArray.fromObject(friendList).toString();
 			try {
 				PrintWriter pw = response.getWriter();

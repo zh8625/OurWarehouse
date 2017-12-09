@@ -21,9 +21,20 @@
         <activity android:name=".activity.RegActivity" />
         <activity android:name=".activity.MainActivity" />
 
-        <service android:name=".service.GetMessageToDatabaseService" />
+        <service android:name=".service.GetMessageToRealmService" />
 
         <activity android:name=".activity.ChatActivity"></activity>
+        <receiver android:name=".receiver.MessageReceiver">
+                <intent-filter>
+                    <action android:name="refreshmessage"></action>
+                </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.FriendlistReceiver">
+                <intent-filter>
+                    <action android:name="refreshfriendlist"></action>
+                </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

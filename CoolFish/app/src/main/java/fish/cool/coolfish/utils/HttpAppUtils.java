@@ -3,6 +3,7 @@ package fish.cool.coolfish.utils;
 import com.lzy.okgo.callback.StringCallback;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,6 +11,8 @@ import java.util.Map;
  */
 
 public class HttpAppUtils {
+    public static int uid=-1;
+
     private static String baseUrl="http://www.zhaichuankun.cn/CoolFishServer/";
     //注册
     public static void regUser(String username, String password,String usex, String uage, StringCallback callback){
@@ -42,7 +45,7 @@ public class HttpAppUtils {
 
     }
     //添加好友
-    public static void addFriend(int uid,int touid,StringCallback callback){
+    public static void addFriend(int touid,StringCallback callback){
         String url = baseUrl + "chataddFriend";
 
         Map<String,String> params=new HashMap<>();
@@ -51,8 +54,8 @@ public class HttpAppUtils {
 
         HttpUtils.post(url,params,callback);
     }
-
-    public static void sendMessage(int uid,int touid,String message,StringCallback callback){
+    //发送消息
+    public static void sendMessage(int touid,String message,StringCallback callback){
         String url = baseUrl + "chatsend";
 
         Map<String,String> params=new HashMap<>();
@@ -60,6 +63,20 @@ public class HttpAppUtils {
         params.put("touid",String.valueOf(touid));
         params.put("msg",message);
 
+        HttpUtils.post(url,params,callback);
+    }
+    //接收消息
+    public static void receiverMessage(StringCallback callback){
+        String url = baseUrl + "chatreceive";
+        Map<String,String> params=new HashMap<>();
+        params.put("uid",String.valueOf(uid));
+        HttpUtils.post(url,params,callback);
+    }
+    //获取好友
+    public static void friendlist(StringCallback callback){
+        String url = baseUrl + "chatfriendList";
+        Map<String,String> params=new HashMap<>();
+        params.put("uid",String.valueOf(uid));
         HttpUtils.post(url,params,callback);
     }
 

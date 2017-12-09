@@ -16,6 +16,7 @@ import com.lzy.okgo.request.base.Request;
 import fish.cool.BaseActivity;
 import fish.cool.coolfish.bean.ResponseJson;
 import fish.cool.coolfish.R;
+import fish.cool.coolfish.service.GetMessageToRealmService;
 import fish.cool.coolfish.utils.HttpAppUtils;
 import fish.cool.coolfish.utils.JsonUtils;
 
@@ -91,9 +92,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 String jsonData=JsonUtils.getString(json,"data");
 
                 if (responseJson.getCode()==0){
+                    //启动service
+                    Intent in =new Intent(LoginActivity.this, GetMessageToRealmService.class);
+                    startService(in);
+                    //
                     putSPString("SP_USER",jsonData);
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     LoginActivity.this.finish();
+                    //把当前用户的uid放入HttpAppUtils的uid
+                    putUidToHttpAppUtils();
 
                 }else if (responseJson.getCode()==-1){
                     Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();

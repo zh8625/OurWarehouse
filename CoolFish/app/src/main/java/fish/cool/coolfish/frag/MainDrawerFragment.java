@@ -10,13 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import fish.cool.coolfish.R;
 import fish.cool.coolfish.activity.LoginActivity;
 import fish.cool.coolfish.activity.MainActivity;
 import fish.cool.coolfish.bean.User;
+import fish.cool.coolfish.service.GetMessageToRealmService;
 import fish.cool.coolfish.utils.JsonUtils;
 
 
@@ -33,7 +31,7 @@ public class MainDrawerFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         this.container = container;
         View view=inflater.inflate(R.layout.frag_main_drawer,container,false);
@@ -47,8 +45,12 @@ public class MainDrawerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((MainActivity)container.getContext()).removeSP("SP_USER");
+                //停止接收消息的service
+                Intent stops = new Intent(container.getContext(), GetMessageToRealmService.class);
+                container.getContext().stopService(stops);
+                //
                 Intent in = new Intent(container.getContext(), LoginActivity.class);
-                startActivity(in);
+                container.getContext().startActivity(in);
                 ((MainActivity) container.getContext()).finish();
             }
         });

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import fish.cool.coolfish.bean.User;
+import fish.cool.coolfish.utils.HttpAppUtils;
 import fish.cool.coolfish.utils.JsonUtils;
 
 /**
@@ -41,12 +42,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     //获取当前登录用户的uid
-    public int getNowUid() {
+    public void putUidToHttpAppUtils() {
         String s = getSPString("SP_USER", "");
         if (!s.equals("")) {
-            return JsonUtils.toBean(s, User.class).getUid();
+             HttpAppUtils.uid= JsonUtils.toBean(s, User.class).getUid();
         }
-        return -1;
+        HttpAppUtils.uid = -1;
 
     }
 

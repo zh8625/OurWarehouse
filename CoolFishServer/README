@@ -50,8 +50,7 @@
 			return:
 			code:0
 			msg:好友列表
-			data:FriendList(List<Map<String,Object>>)
-					Map<String,Object>:uid,uname
+			data:List<User>
 	3)消息
 		3.1)send()
 			uid,touid,msg

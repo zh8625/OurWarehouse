@@ -75,14 +75,13 @@ public class UserAndFriendServiceImpl implements UserAndFriendService {
 		return friendDao.isExistByFUIDOAndFUIDT(i, j);
 	}
 	
-	public List<Map<String, Object>> friendList(int i){
+	public List<User> friendList(int i){
 		List<Map<String, Object>> friendList = new ArrayList<>();
 		List<Integer> fuids =friendDao.friendList(i);
 		for (Integer integer : fuids) {
-			Map<String, Object> map = new HashMap<>();
-			map.put("uid", integer);
-			User u = userDao.getUserByUID(integer);
-			map.put("uname",u.getUsername());
+			User u = new User();
+			u = userDao.getUserByUID(integer);
+			friendList.add(u);
 		}
 		
 		return friendList;

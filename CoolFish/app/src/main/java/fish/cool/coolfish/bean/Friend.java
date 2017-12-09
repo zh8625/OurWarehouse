@@ -1,12 +1,12 @@
 package fish.cool.coolfish.bean;
 
 public class Friend {
-	//���ѱ�
-	private Integer fid;//����
+	//好友
+	private Integer fid;//主键
 	
-	private Integer fuido;//�û�1(���˻�Ϊ����)
+	private Integer fuido;//用户1
 	
-	private Integer fuidt;//�û�2(���˻�Ϊ����)
+	private Integer fuidt;//用户2
 
 	public Integer getFid() {
 		return fid;

@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class MessageTransfer {
 	
-	//��Ϣ��ת
-	private Integer mid;//����
+	//消息中转
+	private Integer mid;//主键
 	
-	private Integer fromuid;//����Ϣ���û�
+	private Integer fromuid;//发消息的用户
 	
-	private Integer touid;//����Ϣ���û�
+	private Integer touid;//收消息的用户
 	
-	private String message;//��Ϣ
+	private String message;//消息
 	
-	private Date mdate;//ʱ��
+	private Date mdate;//时间
 	
 	
 
